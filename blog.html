@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-ivory-ink">
+    <title>화곡 셔츠룸 블로그 - 데이터 기반 주식투자 인사이트</title>
+    <meta name="description" content="화곡 셔츠룸 블로그: 마포 프리미엄 주식투자 공간의 전문 분석 인사이트. 데이터 기반 투자 전략과 시장 트렌드를 확인하세요. 010-6279-0862 문의.">
+    <meta name="keywords" content="화곡 셔츠룸, 마포 셔츠룸, 주식투자 블로그, 투자 인사이트, 데이터 분석, 화곡 투자룸, 마포 주식">
+    <link rel="canonical" href="https://sf-t3-1779642675702-494.vercel.app/blog">
+    <meta property="og:title" content="화곡 셔츠룸 블로그 - 프리미엄 주식투자 인사이트">
+    <meta property="og:description" content="마포 지역 최고의 주식투자 공간, 화곡 셔츠룸 블로그. 전문가와 함께하는 데이터 기반 투자 전략과 시장 분석을 제공합니다.">
+    <meta property="og:image" content="https://sf-t3-1779642675702-494.vercel.app/og-image.jpg">
+    <meta property="og:url" content="https://sf-t3-1779642675702-494.vercel.app/blog">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #faf9f7;
+            color: #2c2c2c;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8e5e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .site-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+        }
+        .site-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
+        }
+        nav ul li a:hover {
+            color: #b8a58a;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 2px;
+            background: #2c2c2c;
+            transition: 0.3s;
+        }
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: #ffffff;
+            border-left: 1px solid #e8e5e0;
+            padding: 80px 32px 32px;
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+        .mobile-nav.active {
+            right: 0;
+        }
+        .mobile-nav ul {
+            list-style: none;
+        }
+        .mobile-nav ul li {
+            margin-bottom: 24px;
+        }
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            nav ul {
+                display: none;
+            }
+            .mobile-nav {
+                display: block;
+            }
+        }
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, #faf9f7 100%);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: #777;
+            max-width: 640px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+        .blog-post .meta {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 24px;
+            letter-spacing: 0.3px;
+        }
+        .blog-post .meta span {
+            margin-right: 16px;
+        }
+        .blog-post h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 48px 0 20px;
+            letter-spacing: -0.3px;
+        }
+        .blog-post h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin: 36px 0 16px;
+        }
+        .blog-post p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+        .blog-post .highlight-box {
+            background: #f5f2ed;
+            border-left: 4px solid #b8a58a;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .blog-post .highlight-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        .blog-post ul {
+            margin: 20px 0 28px;
+            padding-left: 24px;
+        }
+        .blog-post ul li {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 12px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .blog-post .cta-section {
+            background: #ffffff;
+            border: 1px solid #e8e5e0;
+            border-radius: 12px;
+            padding: 40px 36px;
+            margin: 48px 0 24px;
+            text-align: center;
+        }
+        .blog-post .cta-section h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .blog-post .cta-section p {
+            font-size: 1rem;
+            color: #666;
+        }
+        .blog-post .cta-section .tel-link {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 14px 36px;
+            background: #1a1a1a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: background 0.2s ease;
+        }
+        .blog-post .cta-section .tel-link:hover {
+            background: #b8a58a;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            padding: 48px 24px;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+        footer a {
+            color: #b8a58a;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .blog-post h2 {
+                font-size: 1.4rem;
+            }
+            .blog-post .cta-section {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="site-title"><a href="/">화곡 셔츠룸</a></div>
+            <nav>
+                <ul>
+                    <li><a href="/">홈</a></li>
+                    <li><a href="/about">소개</a></li>
+                    <li><a href="/services">서비스</a></li>
+                    <li><a href="/blog">블로그</a></li>
+                    <li><a href="/contact">문의</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="/">홈</a></li>
+            <li><a href="/about">소개</a></li>
+            <li><a href="/services">서비스</a></li>
+            <li><a href="/blog">블로그</a></li>
+            <li><a href="/contact">문의</a></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>데이터 기반 투자 인사이트</h1>
+            <p>화곡 셔츠룸 블로그 — 마포 프리미엄 주식투자 공간의 전문 분석과 전략</p>
+        </div>
+    </section>
+
+    <article class="blog-post">
+        <div class="meta">
+            <span>2025년 1월 15일</span>
+            <span>|</span>
+            <span>투자 전략</span>
+        </div>
+
+        <h2>2025년 1분기 마포 주식투자 전략: 데이터가 말하는 기회와 리스크</h2>
+
+        <p>글로벌 금융시장은 2025년 첫 분기를 맞아 구조적 전환점에 서 있다. 연방준비제도의 통화정책 정상화 속도, 반도체 업황 사이클, 그리고 국내 정치 리스크가 복합적으로 작용하며 변동성이 확대되는 국면이다. 화곡 셔츠룸의 데이터 분석팀은 2024년 4분기 마감 기준 1,200개 이상의 종목 데이터와 37개 업종 지표를 종합 분석하여, 1분기 마포 지역 투자자들이 주목해야 할 세 가지 핵심 전략을 도출했다.</p>
+
+        <div class="highlight-box">
+            <p><strong>핵심 요약:</strong> 2025년 1분기 코스피 예상 밴드는 2,450~2,680p. 반도체·2차전지 중심의 수출주보다 내수 방어주와 금융주의 상대적 강세가 예상된다. 화곡 셔츠룸 회원 대상 데이터 기반 포트폴리오 리밸런싱이 권장된다.</p>
+        </div>
+
+        <h3>1. 반도체 업황 디커플링: 선별적 접근 필요</h3>
+        <p>메모리 반도체 업종은 2024년 하반기부터 재고 조정 국면에 진입했다. 삼성전자와 SK하이닉스의 4분기 잠정 실적은 시장 기대치를 하회했으나, HBM(고대역폭메모리) 부문은 여전히 견조한 수요를 유지 중이다. 화곡 셔츠룸의 자체 퀀트 모델은 HBM 관련주의 12개월 선행 PER이 14.2배로 업종 평균 대비 18% 저평가되어 있음을 지목한다. 다만, 레거시 메모리 비중이 높은 종목은 비중 축소가 바람직하다.</p>
+
+        <ul>
+            <li>HBM 관련주: 2025년 매출 성장률 32.4% 전망 (시장 컨센서스)</li>
+            <li>레거시 메모리: 2025년 1분기 영업이익률 5.8%p 하락 예상</li>
+            <li>반도체 장비주: CSOT·삼성전자 설비투자 확대 수혜 기대</li>
+        </ul>
+
+        <h3>2. 금융업: 금리 인하기의 수혜 업종</h3>
+        <p>한국은행의 기준금리 인하 사이클이 본격화되면서 은행업종의 순이자마진(NIM) 하락 압력이 존재한다. 그러나 보험·증권 업종은 금리 하락에 따른 채권 평가이익 증가와 주식 거래대금 회복으로 실적 개선이 예상된다. 특히, 2024년 12월 일평균 거래대금이 21.3조 원으로 전년 대비 15.7% 증가한 점은 증권업의 구조적 회복 신호로 해석된다. 화곡 셔츠룸의 애널리스트들은 금융업종 내에서도 자기자본이익률(ROE) 10% 이상, 배당수익률 4.5% 이상의 종목을 1분기 핵심 포트폴리오로 제시한다.</p>
+
+        <h3>3. 내수 방어주: 불확실성 시대의 안전판</h3>
+        <p>글로벌 경기 불확실성이 지속됨에 따라 필수소비재·헬스케어·통신 등 내수 방어주의 매력이 부각된다. 2025년 1분기 소비자심리지수(CSI)가 98.2로 기준선(100)을 하회하는 점은 소비 위축 가능성을 시사한다. 이에 따라 화곡 셔츠룸은 담배·생필품·건강기능식품 업종의 비중 확대를 권고한다. 특히, 배당 성향이 안정적이고 부채비율이 50% 미만인 종목은 변동성 장세에서 하방 경직성이 우수하다는 분석이다.</p>
+
+        <div class="cta-section">
+            <h3>전문 투자 공간에서 데이터 기반 전략을 실행하세요</h3>
+            <p>화곡 셔츠룸은 마포 지역 최고의 프리미엄 주식투자 공간입니다. 8K 모니터, 실시간 데이터 피드, 전문 애널리스트의 현장 분석을 제공합니다. 지금 바로 투자 환경을 업그레이드하세요.</p>
+            <a href="tel:010-6279-0862" class="tel-link">010-6279-0862 상담 예약</a>
+        </div>
+
+        <p style="font-size:0.95rem; color:#999; border-top:1px solid #e8e5e0; padding-top:20px; margin-top:32px;">본 콘텐츠는 정보 제공 목적으로 작성되었으며, 특정 종목의 매수·매도를 권유하지 않습니다. 투자 결정은 개인의 판단과 책임 하에 이루어져야 합니다. 과거 성과가 미래 수익을 보장하지 않습니다.</p>
+    </article>
+
+    <footer>
+        <p>화곡 셔츠룸 | 서울특별시 마포구 | 사업자등록번호: 000-00-00000</p>
+        <p>상담 문의: <a href="tel:010-6279-0862">010-6279-0862</a></p>
+        <p>&copy; 2025 화곡 셔츠룸. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        document.querySelectorAll('.mobile-nav a').forEach(function(link) {
+            link.addEventListener('click', function() {
+</body>
+</html>
